@@ -3,7 +3,7 @@
  * Plugin Name:       eInvoice Validator for Germanized
  * Plugin URI:        https://invoicepress.de/
  * Description:       Checks every e-invoice that Germanized Pro creates against the official rules with VAMPIRE, directly in the shop, and holds back a faulty invoice before it is finalized and sent.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.4
  * Requires PHP:      8.2
  * Author:            invoicePress
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 
 
-define( 'EIVG_VERSION', '1.0.0' );
+define( 'EIVG_VERSION', '1.0.1' );
 define( 'EIVG_FILE', __FILE__ );
 define( 'EIVG_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EIVG_URL', plugin_dir_url( __FILE__ ) );

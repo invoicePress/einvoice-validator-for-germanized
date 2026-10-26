@@ -4,7 +4,7 @@ Tags: e-invoice, xrechnung, zugferd, peppol, germanized
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,9 @@ Yes, with less effect. Then the plugin checks the finished files after you final
 Every file Germanized Pro creates automatically: ZUGFeRD in its profiles, XRechnung and Peppol BIS Billing 3. The engine chooses the rules from the file itself.
 
 == Changelog ==
+
+= 1.0.1 =
+* Maintenance release without visible changes.
 
 = 1.0.0 =
 * A rule that cannot be evaluated for an invoice no longer stops the check; the report lists it as not evaluable.

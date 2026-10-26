@@ -4,7 +4,7 @@ Tags: e-rechnung, xrechnung, zugferd, peppol, germanized
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,9 @@ Ja, mit weniger Wirkung. Dann prüft das Plugin die fertigen Dateien, nachdem Si
 Jede Datei, die Germanized Pro automatisch erzeugt: ZUGFeRD in seinen Profilen, XRechnung und Peppol BIS Billing 3. Die Prüfmaschine wählt die Regeln aus der Datei selbst.
 
 == Changelog ==
+
+= 1.0.1 =
+* Wartungsfassung ohne sichtbare Änderung.
 
 = 1.0.0 =
 * Eine Prüfregel, die sich für eine Rechnung nicht auswerten lässt, bricht die Prüfung nicht mehr ab; der Bericht nennt sie als nicht auswertbar.
