@@ -1,0 +1,1906 @@
+einvoice-validator ( VAMPIRE PHP ), runtime export - NOTICE
+
+The engine ( src/ ) is free software, copyright 2026 Ralf Fuhrmann, specialPress,
+licensed under the GNU General Public License, version 2 or later
+( GPL-2.0-or-later, see LICENSE ). That licence covers the engine only.
+
+The rule packages in rulesets/ are NOT original work of specialPress. Each one
+is a rule model derived by machine from a published Schematron rule set: rule
+identifiers, contexts, test expressions and message texts are taken from the
+upstream files, and the message texts are reproduced verbatim. Each rule
+package names in its head ( "license" ) the SPDX identifier of the licence
+under which it is passed on, and the list below says the same per package,
+with origin, publisher and copyright. NOASSERTION means that the rights
+holder states no licence; the entry then says on what terms the package is
+included. The full text of every licence named below is in licences/.
+
+Modifications: the upstream rules were compiled into a JSON rule model. The
+business terms that a message names ( BT-n, BG-n ) were extracted into a
+list per rule, and catalogue keys for the merging of equal rules were added.
+The rule logic and the message texts were not changed.
+
+------------------------------------------------------------------------------
+Rule sets in this package
+------------------------------------------------------------------------------
+
+1. rulesets/EN16931-UBL@1.3.17.json
+   Title:      EN16931 model bound to UBL
+   Version:    1.3.17
+   Upstream:   EN 16931 validation artefacts (Schematron), CEN/TC 434
+   Publisher:  European Commission, ConnectingEurope, on behalf of CEN/TC 434;
+               obtained from the GitHub release of the repository below,
+               unchanged ( release 1.3.17; up to 1.3.16 through the
+               phive-rules distribution )
+   Source:     https://github.com/ConnectingEurope/eInvoicing-EN16931
+   File:       EN16931-UBL-validation.xslt
+   SHA-256:    fc4e6cfa8596bba0c2abd19038a98960c6ee9fc1f44566787c115efd4f4aca7c
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    EUPL-1.2
+   Texts:      licences/EUPL-1.2.txt
+   Copyright:  The upstream files carry no copyright line. The copyright of EN
+               16931:2017 is owned by CEN and its members. Up to release 1.2.3
+               the artefacts were Apache-2.0; since 1.3.0 they are EUPL-1.2.
+   Notice:     The upstream files state: Licensed under European Union Public
+               Licence (EUPL) version 1.2.
+   Condition:  This rule package is a derivative of EUPL-1.2 material and is
+               distributed under EUPL-1.2 only, never under the proprietary
+               licence of the engine.
+   Condition:  Its source form is the rule package itself (readable JSON); the
+               upstream Schematron is published at the address under Source.
+   Deviation:  BR-CO-09 deliberately changed: Release 1.3.17 dropped the code
+               EL from the country list of BR-CO-09, although the rule text
+               still says that Greece may use the prefix EL; release 1.3.16
+               accepted it. The rule accepts EL again until an upstream
+               release fixes this. Upstream:
+               https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/532
+
+2. rulesets/EN16931-CII@1.3.17.json
+   Title:      EN16931 model bound to CII
+   Version:    1.3.17
+   Upstream:   EN 16931 validation artefacts (Schematron), CEN/TC 434
+   Publisher:  European Commission, ConnectingEurope, on behalf of CEN/TC 434;
+               obtained from the GitHub release of the repository below,
+               unchanged ( release 1.3.17; up to 1.3.16 through the
+               phive-rules distribution )
+   Source:     https://github.com/ConnectingEurope/eInvoicing-EN16931
+   File:       EN16931-CII-validation.xslt
+   SHA-256:    0757f07909938b1b297b8356ab7b66406c89f1b342325385d6a2def998c817f0
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    EUPL-1.2
+   Texts:      licences/EUPL-1.2.txt
+   Copyright:  The upstream files carry no copyright line. The copyright of EN
+               16931:2017 is owned by CEN and its members. Up to release 1.2.3
+               the artefacts were Apache-2.0; since 1.3.0 they are EUPL-1.2.
+   Notice:     The upstream files state: Licensed under European Union Public
+               Licence (EUPL) version 1.2.
+   Condition:  This rule package is a derivative of EUPL-1.2 material and is
+               distributed under EUPL-1.2 only, never under the proprietary
+               licence of the engine.
+   Condition:  Its source form is the rule package itself (readable JSON); the
+               upstream Schematron is published at the address under Source.
+   Deviation:  BR-CO-09 deliberately changed: Release 1.3.17 dropped the code
+               EL from the country list of BR-CO-09, although the rule text
+               still says that Greece may use the prefix EL; release 1.3.16
+               accepted it. The rule accepts EL again until an upstream
+               release fixes this. Upstream:
+               https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/532
+
+3. rulesets/XRechnung-UBL@3.0.2.json
+   Title:      Schematron Version 2.5.0 - XRechnung 3.0.2 compatible - UBL -
+               Invoice / Creditnote
+   Version:    3.0.2
+   Upstream:   XRechnung Schematron (CIUS XRechnung and Extension XRechnung)
+   Publisher:  Koordinierungsstelle fuer IT-Standards (KoSIT), Bremen
+   Source:     https://github.com/itplr-kosit/xrechnung-schematron
+   File:       XRechnung-UBL-validation.xslt
+   SHA-256:    ef4b78e9035e9c215451e46baeff9e336b48c9153507900df792dc1a25c35e37
+   Package:    SPDX-License-Identifier: Apache-2.0
+   Licence:    Apache-2.0
+   Texts:      licences/Apache-2.0.txt
+   Copyright:  Copyright Koordinierungsstelle fuer IT-Standards (KoSIT). The
+               upstream files carry no copyright line, the repository LICENSE
+               is the unmodified Apache License 2.0, and the repository has no
+               NOTICE file. The same upstream files also contain rules with
+               PEPPOL-EN16931 identifiers ( 21 in the UBL rule set, 22 in the
+               CII rule set ), which KoSIT publishes there under the same
+               licence.
+
+4. rulesets/XRechnung-CII@3.0.2.json
+   Title:      Schematron Version 2.5.0 - XRechnung 3.0.2 compatible - CII
+   Version:    3.0.2
+   Upstream:   XRechnung Schematron (CIUS XRechnung and Extension XRechnung)
+   Publisher:  Koordinierungsstelle fuer IT-Standards (KoSIT), Bremen
+   Source:     https://github.com/itplr-kosit/xrechnung-schematron
+   File:       XRechnung-CII-validation.xslt
+   SHA-256:    b7a422f1191be2781cf5961f58a9a28e3e0538962eeb5533cc482ec34decadf2
+   Package:    SPDX-License-Identifier: Apache-2.0
+   Licence:    Apache-2.0
+   Texts:      licences/Apache-2.0.txt
+   Copyright:  Copyright Koordinierungsstelle fuer IT-Standards (KoSIT). The
+               upstream files carry no copyright line, the repository LICENSE
+               is the unmodified Apache License 2.0, and the repository has no
+               NOTICE file. The same upstream files also contain rules with
+               PEPPOL-EN16931 identifiers ( 21 in the UBL rule set, 22 in the
+               CII rule set ), which KoSIT publishes there under the same
+               licence.
+
+5. rulesets/CEN-EN16931-UBL@3.0.21.json
+   Title:      EN16931 model bound to UBL
+   Version:    3.0.21
+   Upstream:   EN 16931 validation artefacts for UBL, release 1.3.16 (CEN/TC
+               434), in the copy that OpenPeppol ships with Peppol BIS Billing
+               3.0.21
+   Publisher:  European Commission, ConnectingEurope, on behalf of CEN/TC 434;
+               obtained through the KoSIT validator configuration for Peppol
+               BIS Billing 3.0
+   Source:     https://github.com/ConnectingEurope/eInvoicing-EN16931
+   File:       CEN-EN16931-UBL.xslt
+   SHA-256:    a8a54aef3699057a3820cd2ebcac8ea3c364a6ebaf4a237e62064a5bc2877c4a
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    EUPL-1.2
+   Texts:      licences/EUPL-1.2.txt
+   Copyright:  From <xsl:stylesheet on, the file is character for character
+               the CEN release EN16931-UBL-validation.xslt 1.3.16 (measured
+               2026-10-09); OpenPeppol removed only the two leading comments,
+               one of which is the licence line 'Licensed under European Union
+               Public Licence (EUPL) version 1.2.' The copyright of EN
+               16931:2017 is owned by CEN and its members.
+   Notice:     The upstream files state: Licensed under European Union Public
+               Licence (EUPL) version 1.2.
+   Condition:  This rule package is a derivative of EUPL-1.2 material and is
+               distributed under EUPL-1.2 only, never under the proprietary
+               licence of the engine.
+   Condition:  Its source form is the rule package itself (readable JSON); the
+               upstream Schematron is published at the address under Source.
+
+6. rulesets/PEPPOL-EN16931-UBL@3.0.21.json
+   Title:      Rules for Peppol BIS 3.0 Billing
+   Version:    3.0.21
+   Upstream:   Peppol BIS Billing 3.0 validation artefacts (Schematron), the
+               Peppol-specific rules
+   Publisher:  OpenPeppol AISBL; obtained through the KoSIT validator
+               configuration for Peppol BIS Billing 3.0
+   Source:     https://github.com/OpenPEPPOL/peppol-bis-invoice-3
+   File:       PEPPOL-EN16931-UBL.xslt
+   SHA-256:    8c6b935b1bc0bb17d29d949b0aa27ecc62021b613b9fba173cd6bfec6b3f0008
+   Package:    SPDX-License-Identifier: NOASSERTION
+   Licence:    None. OpenPeppol AISBL states no licence for these files.
+               specialPress grants no licence to this rule package and claims
+               none; the rule package is included until OpenPeppol AISBL
+               answers a request for consent, and it will be removed with an
+               update if OpenPeppol AISBL does not consent.
+   Copyright:  Rights holder: OpenPeppol AISBL, Brussels, holds the copyright
+               of Peppol BIS Billing 3.0. The OpenPeppol repository declares
+               no licence, and the compiled XSLT carries no licence line. The
+               BIS document says it 'may not be modified, re-distribute, sold
+               or repackaged in any other way without the prior consent of
+               OpenPeppol AISBL'. KoSIT redistributes the files in an
+               Apache-2.0 repository, which grants no rights in OpenPeppol's
+               material.
+   Pending:    Consent of OpenPeppol AISBL to redistribute the translated
+               Peppol rules has been requested.
+
+7. rulesets/FACTURX-EN16931-CII@1.09.2.json
+   Title:      Schema for Factur-X; 1.09.2; EN16931-COMPLIANT (FULLY)
+   Version:    1.09.2
+   Upstream:   Factur-X 1.09.2 / ZUGFeRD 2.5.2, profile EN 16931 (COMFORT):
+               prebuilt Schematron XSLT FACTUR-X_EN16931.xslt with its code
+               database FACTUR-X_EN16931_codedb.xml, byte-identical to the
+               official FeRD release package ZUGFeRD 2.5.2
+   Publisher:  FNFE-MPE (Forum National de la Facture Electronique et des
+               Marches Publics Electroniques, Paris) and FeRD (Forum
+               elektronische Rechnung Deutschland at AWV e.V., Berlin);
+               obtained from the FeRD release package, not through phive-rules
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EN16931.xslt
+   SHA-256:    67f03050e3add4c83dc93de36e4501f6a11aae1ac790b3f9558feb0581019bcb
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron). 48 of the 200 BR-*
+               assertions have the test of the EUPL-1.2 CEN release 1.3.16 and
+               not that of 1.2.3, the last Apache-2.0 release (measured
+               2026-10-09); this rule package is therefore distributed under
+               EUPL-1.2, and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT, Schematron and code
+               database files carry no copyright or licence line, and the
+               package has no LICENSE or NOTICE file. The specification footer
+               reads '(c)2026 FNFE-MPE | FeRD - All rights reserved'. The EN
+               16931 business rules (BR-*) restate EN 16931-1:2017, whose
+               copyright is owned by CEN and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+8. rulesets/FACTURX-EXTENDED-CII@1.09.2.json
+   Title:      Schema for Factur-X; 1.09.2; EN16931-CONFORMANT-EXTENDED
+   Version:    1.09.2
+   Upstream:   Factur-X 1.09.2 / ZUGFeRD 2.5.2, profile EXTENDED: prebuilt
+               Schematron XSLT FACTUR-X_EXTENDED.xslt with its code database
+               FACTUR-X_EXTENDED_codedb.xml, byte-identical to the official
+               FeRD release package ZUGFeRD 2.5.2
+   Publisher:  FNFE-MPE (Forum National de la Facture Electronique et des
+               Marches Publics Electroniques, Paris) and FeRD (Forum
+               elektronische Rechnung Deutschland at AWV e.V., Berlin);
+               obtained from the FeRD release package, not through phive-rules
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EXTENDED.xslt
+   SHA-256:    52b44e77be20de05ee090eec0c4bbe69df239b608aefcaca2e24ffb1a0e50a6e
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron). 34 of the 211 BR-*
+               assertions have the test of the EUPL-1.2 CEN release 1.3.16 and
+               not that of 1.2.3, the last Apache-2.0 release (measured
+               2026-10-09); this rule package is therefore distributed under
+               EUPL-1.2, and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT, Schematron and code
+               database files carry no copyright or licence line, and the
+               package has no LICENSE or NOTICE file. The specification footer
+               reads '(c)2026 FNFE-MPE | FeRD - All rights reserved'. The EN
+               16931 business rules (BR-*) restate EN 16931-1:2017, whose
+               copyright is owned by CEN and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+9. rulesets/versions/ZUGFERD-BASIC-CII@2.1.json
+   Title:      Schema for FACTUR-X; 1.0; EN16931-COMPLIANT-BASIC
+   Version:    2.1
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC.xslt
+   SHA-256:    59485aa93260f304cfa3e18e538ce7fcf00c9dcc3ee55e6be8c18f68203e52a3
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+10. rulesets/versions/ZUGFERD-BASIC-CII@2.2.json
+   Title:      Schema for FACTUR-X; 1.0; EN16931-COMPLIANT-BASIC
+   Version:    2.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC.xslt
+   SHA-256:    21b49b1172c37a75eefeff2780c7e6e85f62d9076a61448e3738d538160ce6f7
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+11. rulesets/versions/ZUGFERD-BASIC-CII@2.3.2.json
+   Title:      Schema for Factur-X; 1.07.2; EN16931-COMPLIANT-BASIC
+   Version:    2.3.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.2_BASIC.xslt
+   SHA-256:    4db54ff53b77bdcbd59498dca7734469efc281bc1e843e4b86dd43de95483bb8
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+12. rulesets/versions/ZUGFERD-BASIC-CII@2.3.3.json
+   Title:      Schema for Factur-X; 1.07.3; EN16931-COMPLIANT-BASIC
+   Version:    2.3.3
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.3_BASIC.xslt
+   SHA-256:    dd1bf4756060dd4868bc5f70618f4d0faeeae6bed9b6a0239c2d6d0a4e7fc439
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+13. rulesets/versions/ZUGFERD-BASIC-CII@2.4.json
+   Title:      Schema for Factur-X; 1.08; EN16931-COMPLIANT-BASIC
+   Version:    2.4
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC.xslt
+   SHA-256:    76762d70dd715dba39c2825a0071084c0ccd98b4bcde026cb155e5f8ce7d1406
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+14. rulesets/versions/ZUGFERD-BASIC-CII@2.5.2.json
+   Title:      Schema for Factur-X; 1.09.2; EN16931-COMPLIANT-BASIC
+   Version:    2.5.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC.xslt
+   SHA-256:    9fdf25b97a0fe53cb6009ebb9584034a64210080eaddeca34d9401ab02e64632
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+15. rulesets/versions/ZUGFERD-BASIC-CII@2.5.json
+   Title:      Schema for Factur-X; 1.09; EN16931-COMPLIANT-BASIC
+   Version:    2.5
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC.xslt
+   SHA-256:    75855eb72fe605130dcc9b4c6e4b182fc7d157becbb24ede364e0356ab298b5d
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+16. rulesets/versions/ZUGFERD-BASICWL-CII@2.1.json
+   Title:      Schema for FACTUR-X; 1.0; ACCOUNTING INFORMATION, No XML
+               Invoice, (BASIC WITHOUT LINE)
+   Version:    2.1
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC-WL.xslt
+   SHA-256:    7b61eac413763376ac523b7613c9237f9ec27bfd2f3343cd56e0a637ba9820a5
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+17. rulesets/versions/ZUGFERD-BASICWL-CII@2.2.json
+   Title:      Schema for FACTUR-X; 1.0; ACCOUNTING INFORMATION, No XML
+               Invoice, (BASIC WITHOUT LINE)
+   Version:    2.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC-WL.xslt
+   SHA-256:    5a8aedc8e77ea50051f514eb46e0bbb946668abe1a4ea746fedcc5478cae3bbe
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+18. rulesets/versions/ZUGFERD-BASICWL-CII@2.3.2.json
+   Title:      Schema for Factur-X; 1.07.2; Accounting, BASIC without Lines
+   Version:    2.3.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.2_BASICWL.xslt
+   SHA-256:    5cb459c64f22ac5ec2e6840566a61eea3008f65c9c94502434207dd3f6abc224
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+19. rulesets/versions/ZUGFERD-BASICWL-CII@2.3.3.json
+   Title:      Schema for Factur-X; 1.07.3; Accounting, BASIC without Lines
+   Version:    2.3.3
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.3_BASICWL.xslt
+   SHA-256:    631c56163fc95509a12d6db4ca5581cf8873091dd28ac806ec12d95b3fae168f
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+20. rulesets/versions/ZUGFERD-BASICWL-CII@2.4.json
+   Title:      Schema for Factur-X; 1.08; Accounting, BASIC without Lines
+   Version:    2.4
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC-WL.xslt
+   SHA-256:    fd44226a334fdc2477dcc33706149d0c4099f5040b475543aeba6a6d52b9d856
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+21. rulesets/versions/ZUGFERD-BASICWL-CII@2.5.2.json
+   Title:      Schema for Factur-X; 1.09.2; Accounting, BASIC without Lines
+   Version:    2.5.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC-WL.xslt
+   SHA-256:    105cd23797d4b0a29f60d4cb0faf384f765287817717101917172c5de8bf367a
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+22. rulesets/versions/ZUGFERD-BASICWL-CII@2.5.json
+   Title:      Schema for Factur-X; 1.09; Accounting, BASIC without Lines
+   Version:    2.5
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_BASIC-WL.xslt
+   SHA-256:    b8fc6601f5355237dbadafec6dbca36db0adf8033fc879bb63b2a0e58b80c9f2
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+23. rulesets/versions/ZUGFERD-EN16931-CII@2.1.json
+   Title:      Schema for FACTUR-X; 1.0; EN16931-COMPLIANT (FULLY)
+   Version:    2.1
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EN16931.xslt
+   SHA-256:    b6670c971f19dc4247932aedb90508e098e8e1aa94e098b65e400c320e3b3f25
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+24. rulesets/versions/ZUGFERD-EN16931-CII@2.2.json
+   Title:      Schema for FACTUR-X; 1.0; EN16931-COMPLIANT (FULLY)
+   Version:    2.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EN16931.xslt
+   SHA-256:    75442ae2f4a63752fa39d3df5633401715a6b23e55aa1e381994943cffc187b1
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+25. rulesets/versions/ZUGFERD-EN16931-CII@2.3.2.json
+   Title:      Schema for Factur-X; 1.07.2; EN16931-COMPLIANT (FULLY)
+   Version:    2.3.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.2_EN16931.xslt
+   SHA-256:    b7a280117f2e5c99b6b25e35de1a0c3912cae2d6d0cd61f309464d9b7073eefa
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+26. rulesets/versions/ZUGFERD-EN16931-CII@2.3.3.json
+   Title:      Schema for Factur-X; 1.07.3; EN16931-COMPLIANT (FULLY)
+   Version:    2.3.3
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.3_EN16931.xslt
+   SHA-256:    f91da3e3406916335e695ed86e18969467708dcbad6a4168047b3ede8c31b845
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+27. rulesets/versions/ZUGFERD-EN16931-CII@2.4.json
+   Title:      Schema for Factur-X; 1.08; EN16931-COMPLIANT (FULLY)
+   Version:    2.4
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EN16931.xslt
+   SHA-256:    584acd0c0abbda7af5b3475ac704833e0797175aa2767f93a14abd6172e4228b
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+28. rulesets/versions/ZUGFERD-EN16931-CII@2.5.2.json
+   Title:      Schema for Factur-X; 1.09.2; EN16931-COMPLIANT (FULLY)
+   Version:    2.5.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EN16931.xslt
+   SHA-256:    1c5b85b48a5da1b5c1e4e93ecd8536359854992a9bdb72a210850fb62776b9fd
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+29. rulesets/versions/ZUGFERD-EN16931-CII@2.5.json
+   Title:      Schema for Factur-X; 1.09; EN16931-COMPLIANT (FULLY)
+   Version:    2.5
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EN16931.xslt
+   SHA-256:    ad17794b088dfb89a5e92c9e3b9a2f6663b95bd12b23677667e3e7996d1c4b1f
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+30. rulesets/versions/ZUGFERD-EXTENDED-CII@2.1.json
+   Title:      Schema for FACTUR-X; 1.0; EN16931-CONFORMANT-EXTENDED
+   Version:    2.1
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EXTENDED.xslt
+   SHA-256:    956d1c7a65821f00c8fe15f0656c29a988be7d268a1d628298420e0473653c5d
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+31. rulesets/versions/ZUGFERD-EXTENDED-CII@2.2.json
+   Title:      Schema for FACTUR-X; 1.0; EN16931-CONFORMANT-EXTENDED
+   Version:    2.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EXTENDED.xslt
+   SHA-256:    09cc51b2a49f1d45f473c452871306393eedbbca8938e84225a3647192bf4fca
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+32. rulesets/versions/ZUGFERD-EXTENDED-CII@2.3.2.json
+   Title:      Schema for Factur-X; 1.07.2; EN16931-CONFORMANT-EXTENDED
+   Version:    2.3.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.2_EXTENDED.xslt
+   SHA-256:    4e0290f644b0bc9d523cd3aefaa451babdd21c833ba0387ec5ef3d477b0d5e35
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+33. rulesets/versions/ZUGFERD-EXTENDED-CII@2.3.3.json
+   Title:      Schema for Factur-X; 1.07.3; EN16931-CONFORMANT-EXTENDED
+   Version:    2.3.3
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.3_EXTENDED.xslt
+   SHA-256:    505bcd11df1a7267fcb0ac7cbcc867aaf1043cfaebb4452abb4c0c0dbbf179fe
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+34. rulesets/versions/ZUGFERD-EXTENDED-CII@2.4.json
+   Title:      Schema for Factur-X; 1.08; EN16931-CONFORMANT-EXTENDED
+   Version:    2.4
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EXTENDED.xslt
+   SHA-256:    a61c1fda6317d5dfcb09e00ded817c73ecdb3ac6414ec85e18a67911dc1350d1
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+35. rulesets/versions/ZUGFERD-EXTENDED-CII@2.5.2.json
+   Title:      Schema for Factur-X; 1.09.2; EN16931-CONFORMANT-EXTENDED
+   Version:    2.5.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EXTENDED.xslt
+   SHA-256:    cf0968d0dbef56b1f5b9662c72bc87b22dcf3d97c078ab441bdac345f376e89f
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+36. rulesets/versions/ZUGFERD-EXTENDED-CII@2.5.json
+   Title:      Schema for Factur-X; 1.09; EN16931-CONFORMANT-EXTENDED
+   Version:    2.5
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_EXTENDED.xslt
+   SHA-256:    19ce249e4b9724478867727ffbb39624033d203015e5284c08d4f728bc8fe479
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+37. rulesets/versions/ZUGFERD-MINIMUM-CII@2.1.json
+   Title:      Schema for FACTUR-X; 1.0; ACCOUNTING INFORMATION, No XML
+               Invoice, (MINIMUM)
+   Version:    2.1
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_MINIMUM.xslt
+   SHA-256:    a30b03e78c8b8a36e278868dd3586b54659a389671b8124177252011ea230eae
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+38. rulesets/versions/ZUGFERD-MINIMUM-CII@2.2.json
+   Title:      Schema for FACTUR-X; 1.0; ACCOUNTING INFORMATION, No XML
+               Invoice, (MINIMUM)
+   Version:    2.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_MINIMUM.xslt
+   SHA-256:    6d8293f6d80775735338fd0c8126be8335d3511c07b2a5fd1b6fdb0091f55232
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+39. rulesets/versions/ZUGFERD-MINIMUM-CII@2.3.2.json
+   Title:      Schema for Factur-X; 1.07.2; Accounting, MINIMUM
+   Version:    2.3.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.2_MINIMUM.xslt
+   SHA-256:    3aac74886778f6e88cf372afe71edf6dd4c0330209f76a81442bf8c093ec874e
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+40. rulesets/versions/ZUGFERD-MINIMUM-CII@2.3.3.json
+   Title:      Schema for Factur-X; 1.07.3; Accounting, MINIMUM
+   Version:    2.3.3
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       Factur-X_1.07.3_MINIMUM.xslt
+   SHA-256:    e7c7f3d654e7fe8a7cc5b73f09d5ff0cfe56df289690c6a6d5c32cddfead2115
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+41. rulesets/versions/ZUGFERD-MINIMUM-CII@2.4.json
+   Title:      Schema for Factur-X; 1.08; Accounting, MINIMUM
+   Version:    2.4
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_MINIMUM.xslt
+   SHA-256:    bdb04e05d77d2a4fc4eb4a07e4cb7dd8acff4afb54453971dca1735086180ad8
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+42. rulesets/versions/ZUGFERD-MINIMUM-CII@2.5.2.json
+   Title:      Schema for Factur-X; 1.09.2; Accounting, MINIMUM
+   Version:    2.5.2
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_MINIMUM.xslt
+   SHA-256:    a8fcc37e037bc07f71d05d54e59c876addd494b7bec1af61ecd85ad47172aad6
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+43. rulesets/versions/ZUGFERD-MINIMUM-CII@2.5.json
+   Title:      Schema for Factur-X; 1.09; Accounting, MINIMUM
+   Version:    2.5
+   Upstream:   ZUGFeRD 2.1, 2.2, 2.3.2, 2.3.3, 2.4, 2.5 and 2.5.2 ( Factur-X
+               1.0.05 to 1.09.2 ), profiles MINIMUM, BASIC WL, BASIC, EN 16931
+               and EXTENDED: prebuilt Schematron XSLT with their code
+               databases, one folder per edition, staged by
+               vampire-php/devkit/Cli/import-zugferd-versions.php from
+               phive-rules-zugferd ( external/schematron/<edition>/ ). The
+               rule packages per edition of the version cascade; they are not
+               part of the default package of either engine. One change beyond
+               the common ones: the file names passed to fn:document() are
+               rewritten to zugferd-<edition>-<profile>_codedb.xml ( the code
+               database is the same file under that name ).
+   Publisher:  FNFE-MPE and FeRD ( Forum elektronische Rechnung Deutschland at
+               AWV e.V. ); obtained through the phive-rules repository of
+               Philip Helger ( Apache-2.0 ), which carries the publisher files
+               unchanged
+   Source:     https://www.ferd-net.de/en/ueber-uns/ressourcen-1/veroeffentlichungen/disclaimer-and-rights-of-use-zugferd
+   File:       FACTUR-X_MINIMUM.xslt
+   SHA-256:    9531a573099a8335cbfe142965604782725ee31af09d44f45b893965e95082c6
+   Package:    SPDX-License-Identifier: EUPL-1.2
+   Licence:    Apache-2.0 according to FeRD for the ZUGFeRD Technical
+               Artifacts (Schemata and Schematron); the statement on the FeRD
+               page names no edition and was read on 2026-10-09. Which BR-*
+               assertions of the older editions carry tests of an EUPL-1.2 CEN
+               release was NOT measured per edition; the rule packages are
+               therefore distributed like the 2.5.2 packages under EUPL-1.2,
+               and both licence texts are included.
+   Texts:      licences/Apache-2.0.txt, licences/EUPL-1.2.txt
+   Copyright:  Copyright FNFE-MPE and FeRD. The XSLT and code database files
+               carry no copyright or licence line. The EN 16931 business rules
+               (BR-*) restate EN 16931-1:2017, whose copyright is owned by CEN
+               and its members.
+   Condition:  FeRD requires: 'Developed applications based on this
+               publication or using information from this publication must
+               contain a statement that visibly indicates to the users that
+               this is an application of the publication.' Both engines print
+               the visible notice of this entry in the report of every check
+               that ran this rule package.
+   Condition:  The parts that come from EUPL-1.2 material are distributed
+               under EUPL-1.2 only, never under the proprietary licence of the
+               engine.
+   Shown as:   This check applies the publication Factur-X / ZUGFeRD of
+               FNFE-MPE and FeRD.
+
+------------------------------------------------------------------------------
+Other third-party material
+------------------------------------------------------------------------------
+
+A. Factur-X / ZUGFeRD code lists ( rulesets/codedb/FACTUR-X_*_codedb.xml )
+   Publisher: FNFE-MPE and FeRD, from the official release package ZUGFeRD
+              2.5.2
+   Licence:   Apache-2.0 according to FeRD for the ZUGFeRD Technical Artifacts
+   Used as:   shipped unchanged; the Factur-X rules load them at runtime
+              through fn:document(). The licence text is licences/Apache-2.0.txt.
+
+B. KoSIT Validator scenario configurations ( scenarios.xml )
+   Publisher: Koordinierungsstelle fuer IT-Standards (KoSIT)
+   Licence:   Apache-2.0
+   Used as:   source of the scenario definitions in rulesets/scenarios.json.
+              No KoSIT code is bundled; this library runs no Java at all.
+
+C. UBL 2.1, UN/CEFACT CII D16B and Factur-X 1.09.2 XML schemas
+   Publisher: OASIS / UN/CEFACT / FNFE-MPE and FeRD
+   Licence:   see the respective schema headers
+   Used as:   XSD validation input, shipped unchanged under rulesets/xsd/.
+
+D. Test material, only in the development tree, never in a runtime export
+   XRechnung test suite 3.0.2 (KoSIT, Apache-2.0) and the test files of
+   phive-rules (Philip Helger, Apache-2.0; the files themselves come from the
+   publishers named above) are used unchanged as test fixtures under
+   tests/fixtures. See docs/developer/sources.md and docs/notes/phive-import.md.
+
+Message texts reproduced in validation output are quoted verbatim from the rule
+sets above, as required to stay comparable with the reference validator.

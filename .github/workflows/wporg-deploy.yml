@@ -1,0 +1,69 @@
+# Checks this plugin into the wordpress.org SVN repository whenever a version tag ( v1.2.3 ) is pushed.
+#
+# public-repo.ps1 puts this file into every public plugin repository whose row in PAKETE.json says "wordpress.org", and
+# replaces einvoice-validator-for-germanized with the plugin folder. The tag push of public-repo.ps1 is then the one step that publishes the
+# version on GitHub and on wordpress.org.
+#
+# Secrets, set once per repository by Ralf ( Settings -> Secrets and variables -> Actions ):
+#   SVN_USERNAME  the wordpress.org user name
+#   SVN_PASSWORD  the SVN password from the wordpress.org profile ( Account & Security ), not the login password
+#
+# WARNING: WITHOUT THE TWO SECRETS THE RUN ENDS GREEN AND CHECKS NOTHING IN. That is on purpose: a plugin that
+# wordpress.org has not approved yet has no SVN repository, and its first tag must not show a red run.
+#
+# WARNING: THE ACTION MIRRORS .wordpress-org/ INTO assets/ WITH --delete. A banner or icon that lies only in SVN and not in
+# .wordpress-org/ is deleted by the first run. public-repo.ps1 therefore refuses to publish without banner and icon.
+#
+# WARNING: trunk IS THE REPOSITORY WITHOUT WHAT .gitattributes MARKS export-ignore ( .github, .wordpress-org, .gitattributes ).
+# Everything else in the repository is the content of the tested release ZIP.
+
+name: wordpress.org
+
+# WARNING: THE RELEASE STARTS THE RUN, NOT THE TAG PUSH. On 26.10.2026 the push of v2.39.1 of the viewer ( branch and tag in
+# one push by public-repo.ps1 ) started no run at all, while the release that public-repo.ps1 creates right after it was
+# recorded. A published release is the event that reliably follows every version; its GITHUB_REF_NAME is the tag ( v1.2.3 ).
+# "workflow_dispatch" lets Ralf start the run by hand: Actions -> wordpress.org -> Run workflow, with the tag as "Use workflow
+# from". Never both release and tag push, or one version would be checked in twice.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # WARNING: wordpress.org shows the version named in "Stable tag", not the newest tag. A tag whose number differs from
+      # readme.txt would publish files that nobody gets offered, so the run stops before anything is sent.
+      - name: Version in readme.txt and plugin header
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          stable=$(grep -i -m1 '^Stable tag:' readme.txt | sed 's/^[^:]*:[[:space:]]*//' | tr -d '\r[:space:]')
+          main=$(grep -l -m1 '^[[:space:]/*#@]*Plugin Name:' *.php | head -1)
+          header=$(grep -i -m1 '^[[:space:]/*#@]*Version:' "$main" | sed 's/^[^:]*:[[:space:]]*//' | tr -d '\r[:space:]')
+          echo "Tag: $version, Stable tag: $stable, $main: $header"
+          if [ "$stable" != "$version" ] || [ "$header" != "$version" ]; then
+            echo "::error::Tag, Stable tag in readme.txt and Version in $main must name the same version."
+            exit 1
+          fi
+
+      - name: Credentials present
+        id: creds
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+        run: |
+          if [ -z "$SVN_USERNAME" ]; then
+            echo "::notice::No SVN_USERNAME secret in this repository; nothing is checked into wordpress.org."
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Pinned to the commit of release 2.3.0, because this step receives the SVN password.
+      - name: Check into wordpress.org
+        if: steps.creds.outputs.skip != '1'
+        uses: 10up/action-wordpress-plugin-deploy@54bd289b8525fd23a5c365ec369185f2966529c2
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: einvoice-validator-for-germanized

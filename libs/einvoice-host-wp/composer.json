@@ -1,0 +1,15 @@
+{
+    "name": "specialpress/einvoice-host-wp",
+    "description": "Shared WordPress host plumbing for the eInvoice plugin family: one rate-limit class, one nonce-verified einvoice/v1 REST namespace + AJAX nonce endpoint, JS bridge registry (window.EInvoice). Not a WordPress plugin - vendored into each consuming plugin's own vendor/ tree, per suite-todo 0.2.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "version": "1.8.0",
+    "autoload": {
+        "psr-4": {
+            "SpecialPress\\EInvoice\\Host\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.4"
+    }
+}
